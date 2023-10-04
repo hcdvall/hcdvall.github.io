@@ -1,5 +1,12 @@
 /* Reset some default styles for better customization */
-body, h1, h2, h3, p {
+body, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Retro Gaming', monospace;
+    color: #f8f8f2;
+}
+
+p {
     margin: 0;
     padding: 0;
     font-family: 'Hermit', monospace;
