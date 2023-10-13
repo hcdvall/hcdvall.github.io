@@ -1,8 +1,13 @@
+@font-face {
+    font-family: "retro_gaming";
+    src: url("fonts/retro_gaming_font/RetroGaming.ttf");
+  }  
+
 /* Reset some default styles for better customization */
 body, h1, h2, h3 {
     margin: 0;
     padding: 0;
-    font-family: 'Retro Gaming', monospace;
+    font-family: 'retro_gaming', monospace;
     color: #f8f8f2;
 }
 
