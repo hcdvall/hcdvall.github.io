@@ -80,7 +80,7 @@ a:hover {
 
 .project-text {
     position: absolute;
-    top: 0;
+    top: -40px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -98,8 +98,8 @@ a:hover {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 200px;
-    width: 200%; /* Ensure the image covers the container */
+    padding: 150px;
+    width: 100%; /* Ensure the image covers the container */
     filter: blur(5px); /* Apply blur to the background image */
 }
 
@@ -123,3 +123,31 @@ footer {
     border-radius: 10%; /* Creates a rounded image */
     margin-right: 50px; /* Adds spacing between the image and text */
 }
+
+.image1 {
+    object-fit: cover;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; /* Ensure the image covers the container */
+    filter: blur(5px);
+    height: 250px;
+    
+}
+
+.image2 {
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: np-repeat;
+    width: 100%; /* Ensure the image covers the container */
+    filter: blur(5px);
+    height: 250px;
+}
+
+
+.project:hover .image2 {
+    opacity: 0;
+}
+
