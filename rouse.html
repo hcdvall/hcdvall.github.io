@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Henrik Sedvall</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS stylesheet -->
 </head>
 <body>
     <header>
         <nav>
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="HenrikSedvallCv2023.pdf">Resume</a></li>
             </ul>
         </nav>
     </header>
@@ -41,17 +42,150 @@
 -->
         
 
-        <div class="project">
-            <img class="image1" src="Rouse_aiming_abort_sprint.gif">
-            <img class="image2" src="Rouse_aiming_abort_sprint2.png">
-            
-            <div class="project-text">
-                <h3>Rouse</h3>
-                <p>Description of your project. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="project">
+        <img class="image3" src="pics/Rouse_aiming_abort_sprint2.png" style="filter: blur(2px); height: 250px;">
+        <div class="project-text">
+            <h3>Rouse</h3>
+        </div>
+    </div>
+    
+    <h2>About</h2>
+    <p>
+        Rouse is a 3rd person physics-based puzzle game. You play as Rose and as you wake up you find yourself in a dream of your little brother. 
+        Use your magical blunderbuss to solve puzzles and save your brother from his nightmare! <br><br>
+        
+        The blunderbuss plays an essential role in solving the puzzles. 
+        Along with the platform-friendly levels, the player is encouraged to combine the freedom of movement with the features of the blunderbuss to traverse through the environment.
+        In the early stages of the development our aim was to have the levels as a playground for physics. <br><br>
+
+        We wanted to provide the tools and let the player feel smart coming up with solutions to problems. 
+        In the end we had to cut back on the freedom to make level design more coherent, 
+        though we still managed to leave enough room for the player to outsmart our design!
+    </p>
+    
+    <h2>Responsibilities</h2>
+    <p>
+        My work mainly revolved around gameplay and more specifically the player movement, i.e. walking, jumping, sprinting and parts of the aiming, e.g. aiming down sights and how that effects the movement. 
+        We knew that the platforming aspect would be essential in the level design, and therefore the maneuverability of the player had to be on par with that essentiality.
+        <br><br>
+        Apart from this I also acted as Scrum Master. I mainly got that responsibility because I have some professional experience of it, but this was not a predominant occupation during the project.
+    </p>
+
+    <h2>Jumping</h2>
+    <p>
+        The jumping went trough multiple iterations until it was finalized and was continuously tested and tuned. 
+        It was important to have exactness as well as flow, all depending on what obstacles the player was faced with. 
+        The jumping was divided into standing still (idle), moving (walking/jogging) and sprinting but all states utilized the same functionalities for jumping and falling - only parameters were set differently.
+        <br><br>
+        In all states (even when not jumping) the falling would be altered to increase over time by checking if if the player had a velocity in negative z. 
+        If that was true, I used AddActorWorldOffset() to increase the change of z over time by a constant factor.
+    </p>
+    <br>
+    <div class="project">
+        <img class="image3" src="projects/rouse/Falling.PNG" style="height: 200px;border-radius: 2%">
+    </div>
+    <br>
+    <p>
+        The primary reason for this alteration was to make jumping feel more snappy, which was especially useful for accuracy in smaller platforming scenarios. 
+        This leads into another essential part in the snappiness of the jumping, especially when the player is moving or sprinting.
+        <br><br>
+        Initially I only added an upwards force (positive z) to make the player jump. 
+        However, this make the jumping feel very buoyant. 
+        The alteration of the falling helps, but by giving the player an extra push on the x-y plane when moving plus jumping, the snappiness was further increased. 
+        This was done by using LaunchCharacter(), with a constant velocity of z, but altering x and y velocity.
+        <br><br>
+        The push in x and y was calculated by multiplying the current velocity in the respective direction with a constant factor. 
+        So the push would be greater when the player is sprinting. 
+        At all times, the player was also able to maneuver the player in the air, no matter the initial state before jumping.
+    </p>
+
+    <div class="grid-container-element">
+
+        <div class="grid-child-element purple">
+            <div class="project">
+                <img class="image3" src="projects/rouse/Rouse_idle_jump_resized.gif" style="border-radius: 10%">
             </div>
         </div>
+
+        <div class="grid-child-element green">
+            <div class="project">
+                <img class="image3" src="projects/rouse/Rouse_moving_jump_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+
+        <div class="grid-child-element red">
+            <div class="project">
+                <img class="image3" src="projects/rouse/Rouse_sprinting_jump_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+
+    </div>
     
+    <h2>Aiming down sights</h2>
+    <p>
+        Typically in third person games, aiming down sights (ADS) would move the camera closer to the player and/or change the field of view (FOV) for the camera. 
+        The ADS in Rouse was pretty important to get right, because that is the only way the player is able to shoot and engage in puzzles.
+    </p>
         
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+
+        <div class="grid-child-element purple">
+            <div class="project">
+                <img class="image3" src="projects/rouse/Rouse_aiming_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+
+        <div class="grid-child-element green">
+            <div class="project">
+                <img class="image3" src="projects/rouse/Rouse_aiming_abort_sprint_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        When the player is aiming a timeline is used to alter the length and offset of the spring arm between camera and player, as well as changing the FOV. 
+        When the player stops aiming the timeline is reversed. 
+        The position of the camera when aiming was conveniently positioned to disguise the lack of animation for the lower body when turning.
+        <br><br>
+        The aiming also slows down the movement and the mouse sensitivity. 
+        If the player is sprinting it will be aborted, but directly continued if the player never releases the sprint-button. 
+        This felt necessary to have, to avoid messing up the sense of flow we were going for in the movement.
+
+    </p>
+
+    <h2>Sprinting</h2>
+        
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+        <p>
+            The sprinting arrived late to the party and is not crucial to tackle the platforming. 
+            However, the sprinting feature did a lot to the feel of the game, especially an increased sense of control.
+            <br><br>
+            Even if you were able to scale platforms and jump gaps without sprinting, 
+            the received speed-up makes the player more comfortable doing it.
+        </p>
+        
+
+        <div class="grid-child-element green">
+            <div class="project">
+                <img class="image3" src="projects/rouse/Rouse_sprinting_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+    </div>
+
+    <h2>Thougths</h2>
+    <p>
+        In addition to everything already mentioned, I helped out with setting up animation and sound for the player, 
+        doing a lot of playtesting (we only had QA part time) and by that refining my work. 
+        This was the first time I and the rest of team worked with Unreal in a larger project, and it was an incredible learning experience.
+        <br><br>
+        Even though we worked in a project with such a large team, we managed to make everyone feel involved. 
+        No ideas were rejected right off the bat, instead we often tried to reshape ideas to fit the game and the scope. 
+        Every team member contributed with a wow moment - we were continuously impressed by the skills among ourselves. 
+        The willingness to make something great together never faltered and in the end we managed 
+        to make a game that we thought was fun to play.
+    </p>
+
     <footer>
         <p>&copy; 2023 Henrik Sedvall</p>
     </footer>
