@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henrik Sedvall</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS stylesheet -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="HenrikSedvallCv2023.pdf">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="projects">
+
+
+    <div class="project">
+        <img class="image3" src="pics/Bucket_boy_floating.png" style="filter: blur(2px); height: 250px;">
+        <div class="project-text">
+            <h3>Bucket Boy</h3>
+        </div>
+    </div>
+    
+    <h2>About</h2>
+    <p>
+        A pitch black puzzle platformer with a flashlight mechanic that is used to light up the environment, 
+        avoid enemies and find batteries to recharge the flashlight.
+        The goal is to climb to the top of the haunted house and find the teddy bear.
+        <br><br>
+        
+        This was my first team project and there were a lot of cool ideas for features we wanted 
+        to fit into the game under a really short time span.
+    </p>
+    
+    <h2>Responsibilities</h2>
+    <p>
+        Between programmers we divided the main responsibilities into player mechanics and enemy mechanics. 
+        I started out working on the enemy mechanics (gameplay and AI), 
+        though my role evolved to also include UI, implementation of animations and grabbing mechanics for the player.
+    </p>
+
+    <h4>The Enemies</h4>
+    <p>
+        Right from the start we had some ideas of what kind of enemies we wanted that would fit into our theme. 
+        The decision fell on ghosts and two kinds of enemies were envisioned from the get-go: 
+        a patrolling enemy and a floating enemy.
+        <br><br>
+        Both enemies were inspiration (or unmercifully stolen) from Super Mario: The ghost and the rugby player.
+        We wanted the enemies to be somewhat distinct 
+        since we were developing a game in such a short time, and these functionalities set the enemies apart.
+    </p>
+    <br>
+    
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+        <div class="grid-child-element green">
+            <h4>The Floating Enemy</h4>
+            <p>
+                The floating enemy is not affected by environment colliders or gravity and is therefore 
+                easy to randomly spawn.
+                <br><br>
+
+                The floating enemy would be idle if the player was:
+                
+                <ul>
+                    <li> outside the borders of its perimeter </li>
+                    <li> moving away from the enemy </li>
+                    <li> standing still </li>
+                </ul> 
+            </p>
+            <br>
+            <p>
+                The floating enemy would move towards the player if the player were close enough and 
+                moving away from the enemy.
+                <br><br> 
+                
+                This was done by:
+                
+                <ul>
+                    <li> calculating the distance between the player and enemy each frame</li>
+                    <li> comparing the x position of the player and enemy to see if the player was 
+                        positioned to the left or right with respect to the enemy </li>
+                    <li> checking if the players' x position of the previous frame was larger than the 
+                        x position in the current frame; 
+                        the player would be moving towards negative x, i.e. left </li>
+                </ul> 
+            </p>
+            <br>
+            <p>
+                To implement the chasing of the player I basically just needed the direction and the 
+                Rigidbody2D function MovePosition(), along with a specified speed of the enemy and its current position.
+            </p>    
+        </div>
+
+        <div class="grid-child-element purple">
+            <div class="project">
+                <img class="image3" src="projects/bucket_boy/Bucket_boy_floating_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+
+    </div>
+    
+    <h4><i>Thoughts</i></h4>
+    <p>
+        I wrote the code this way because it made me able to disregard the rotation of the player. 
+        In retrospect I believe this could be a good design choice, since it 
+        should be quite stable to only consider and compare the x position to determine the actions of the enemy.
+        <br><br>
+        However, a drawback of this kind of implementation could be that the distance between the enemy
+        and the player is calculated every frame, and instead an event could be triggered when the player 
+        was close enough to the enemy.
+    </p>
+
+    
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+        <div class="project">
+            <img class="image3" src="projects/bucket_boy/Bucket_Boy_patrolling_resized.gif" style="border-radius: 10%">
+        </div>
+        
+        <div class="grid-child-element green">
+            <h4>The Patrolling Enemy</h4>
+            <p>
+                The patrolling enemy had two states. The idle state was having the enemy patrolling between two positions.
+                The second state was initializing a chase of the player if the player crossed the line of 
+                sight of the patrolling enemy.
+                <br><br>
+                For the patrolling state, the enemy needed a solution to detect ground and walls and turn 
+                180 degrees if any were detected. 
+                I solved this with Physics2D.Raycast() in the negative y direction and facing x direction 
+                (horizontally) from a slightly offset child object to the patrolling enemy. 
+                The casted rays were quite short, just enough to detect ground or walls.
+                <br><br>
+                From the same child game object a third ray was casted that reached a longer distance than the 
+                other horizontally casted ray. 
+                This longer ray would trigger a chase function if the collider tag would belong to the player.
+            </p>
+        </div>
+    </div>
+    <p>
+        The second state is the chasing state, similar to the chasing state of the floating enemy, 
+        but a bit different. 
+        The patrolling enemy is affected by colliders and has gravity. 
+        In some sense it is not as ghost-like (since it cannot move through floor and walls). 
+        I only had to consider if the player was to the left or right of the enemy and then use 
+        Translate() to move the enemy accordingly x-wise.
+    </p>
+    
+    <h4><i>Thoughts</i></h4>
+    
+   <p>
+    I think this was a feasible approach to make a patrolling enemy. I initially casted rays directly from the enemy game object but found it better to use a child object (kind of like casting rays from player eyes in other games/scenarios) since it made it easier to detect no-ground and make the enemy turn around in time before falling of platforms.
+    <br><br>
+    To have the enemy indefinitely chase the player upon detection (similar to the rugby player in Super Mario) was also a fun design choice, since it made it quite hectic (the enemy speed was ramped up during chase) and luring the enemy to fall down from platforms, not being able to get up - a necessary gameplay scenario. A possible option to the final solution could be to have a timer where the enemy would go back to patrolling if the player was out of sight for a certain time.
+   </p>
+    
+
+    <footer>
+        <p>&copy; 2023 Henrik Sedvall</p>
+    </footer>
+</body>
+</html>

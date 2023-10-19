@@ -19,14 +19,102 @@
     </header>
 
     <section id="projects">
-        <!-- List your projects here with descriptions and links -->
+
+
+    <div class="project">
+        <img class="image3" src="pics/Babymon_zoom.png" style="filter: blur(2px); height: 250px;">
+        <div class="project-text">
+            <h3>Babymon</h3>
+        </div>
+    </div>
+    
+    <h2>About</h2>
+    <p>
+        Babymon: Daycare Dropoff is a hectic and whimsical babysitting experience where you play as a witch 
+        that looks after monster babies while their parents are at work. 
+        Tend to all the babies' needs to keep them happy, and try to persist until the day is over and it’s time for them to go home. <br><br>
         
-        <div class="project">
-            <img class="image3" src="gifs/Babymon_zoom.gif">
-            <div class="project-text">
-                <h3>Babymon</h3>
+        Every little monster has its own preferences, such as specific foods or toys, so you need to make 
+        sure not to mix things up! Lucky for you, it's all written down in a special monster manual that keeps track of every baby.
+    </p>
+    
+    <h2>Responsibilities</h2>
+    <p>
+        My designated role was Gameplay Programmer, with the main responsibilities of camera movement, 
+        player controls and player interactions with the environment. However, 
+        as the project grew larger I had to work with events for sound and animation as well.
+    </p>
+
+    <h4>Camera Movement</h4>
+    <p>
+        The camera follows the player (top down view with a slight angle). 
+        The camera moves smoothly by using Vector3.Lerp and the camera also clamps in the x and z directions 
+        with Math.Clamp.
+        <br><br>
+        I also worked on a camera sweep that was supposed to sweep/zoom in on the player when cooking or 
+        doing other interactions (like mini games that were deprecated).
+    </p>
+    <br>
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+
+        <div class="grid-child-element purple">
+            <div class="project">
+                <img class="image3" src="projects/babymon/Babymon_camera (1).gif" style="border-radius: 10%">
             </div>
         </div>
+
+        <div class="grid-child-element green">
+            <div class="project">
+                <img class="image3" src="projects/babymon/Babymon_zoom_resized.gif" style="border-radius: 10%">
+            </div>
+        </div>
+
+    </div>
+    
+    <h4>Player Controller</h4>
+    <p>
+        Initially we were set on making a grid based movement, but we changed this half-way into the project. 
+        With the physics based movement where rigidbodies are 
+        handled I separated the physics to be done in FixedUpdate() and all the inputs were handled in Update().
+        
+    </p>
+
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+        <div class="project">
+            <img class="image3" src="projects/babymon/Babymon_jump.gif" style="border-radius: 10%">
+        </div>
+        
+        <div class="grid-child-element green">
+            <p>
+                We decided to have a jump movement which was a bit difficult to get right. The physics by themselves 
+                were not that difficult to do, but synchronizing jump and landing 
+                sound with the animations and actual movement of the game object took a lot of iterations to get right.
+                <br><br>
+                A lot of tuning had to be done in the Unity inspector, and I also added multiple colliders to the 
+                player gameobject itself to make it smoother to move around, jump and collide with the environment.
+            </p>
+        </div>
+    </div>
+    
+    <h4>Player Interactions</h4>
+    
+    <div class="grid-container-element" style="grid-template-columns: 1fr 1fr">
+        <p>
+            The player is able to pick up objects and babies (these are two different actions) and a lot of logic 
+            had to be used to get different scenarios right.
+            <br><br>
+            The main idea was to have a child object to the player that acted as an interactor (“Grabbers”). 
+            When the interactor collided with objects certain scenarios would or could be played out. 
+            I also had to handle scenarios when multiple objects could be picked up.
+        </p>
+        
+        <div class="grid-child-element green">
+            <div class="project">
+                <img class="image3" src="projects/babymon/Babymon_interaction(2).gif" style="border-radius: 10%">
+            </div>
+        </div>
+    </div>
+    
 
     <footer>
         <p>&copy; 2023 Henrik Sedvall</p>
