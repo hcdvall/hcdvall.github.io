@@ -31,7 +31,16 @@ body {
 
 header {
     background-color: #282a36;
-    padding: 10px;
+    padding: 30px;
+}
+.header2 {
+    font-size: large;
+    background-color: #282a36;
+    display: inline-grid; 
+    grid-gap: 20px; 
+    width: 50%; 
+    text-align: center; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;    
 }
 
 nav ul {
@@ -44,7 +53,7 @@ nav ul li {
     display: inline;
     margin-right: 20px;
     font-family: 'retro_gaming', monospace;
-    font-size: 20px;
+    font-size: 10px;
 }
 
 nav ul li a {
@@ -53,7 +62,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration:line-through;
 }
 
 section {
@@ -83,12 +92,12 @@ h4 {
 }
 
 a {
-    color: #ffb86c;
+    color: #bd93f9;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: line-through;
 }
 
 .project {
@@ -143,14 +152,15 @@ footer {
     width: 100%;
 }
 
+
 .about-content {
     display: flex;
     align-items: center;
 }
 
 .about-image img {
-    max-width: 200px; /* Adjust the size as needed */
-    max-height: 200px; /* Adjust the size as needed */
+    max-width: 500px; /* Adjust the size as needed */
+    max-height: 500px; /* Adjust the size as needed */
     border-radius: 10%; /* Creates a rounded image */
     margin-right: 50px; /* Adds spacing between the image and text */
 }
@@ -194,8 +204,7 @@ footer {
 .grid-container-element { 
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
-    grid-gap: 20px; 
-    border: 1px solid black; 
+    grid-gap: 20px;    
     width: 100%; 
 } 
 .grid-child-element { 
@@ -203,3 +212,11 @@ footer {
     
 }
 
+
+.zoom {
+  transition: transform .2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
