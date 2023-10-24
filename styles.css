@@ -146,7 +146,7 @@ a:hover {
 
 footer {
     background-color: #000000;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     position: bottom;
     bottom: 0;
@@ -200,8 +200,6 @@ footer {
     opacity: 0;
 }
 
-
-
 .grid-container-element { 
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
@@ -213,11 +211,31 @@ footer {
     
 }
 
-
 .zoom {
   transition: transform .2s; /* Animation */
 }
 
 .zoom:hover {
   transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+            grid-template-rows: auto 1fr;    /* 2 equal rows */
+            gap: 0px; /* Gap between grid items */
+            width: 50%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the grid horizontally */
+            justify-items: center;
+            text-align: center; /* Center text within grid items */
+        }
+
+/* CSS for individual grid items */
+.grid-item {
+
+    padding: 20px;
+}
+
+.grid-item.full-width {
+    grid-column: 1 / 4; /* Span all three columns */
 }
