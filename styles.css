@@ -34,13 +34,14 @@ header {
     padding: 30px;
 }
 .header2 {
+    padding-top: 10px;
     font-size: large;
     background-color: #282a36;
     display: inline-grid; 
     grid-gap: 20px; 
-    width: 50%; 
+    width: 100%; 
     text-align: center; 
-    grid-template-columns: 1fr 1fr 1fr 1fr;    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;    
 }
 
 nav ul {
@@ -161,7 +162,7 @@ footer {
 .about-image img {
     max-width: 500px; /* Adjust the size as needed */
     max-height: 500px; /* Adjust the size as needed */
-    border-radius: 10%; /* Creates a rounded image */
+    border-radius: 5%; /* Creates a rounded image */
     margin-right: 50px; /* Adds spacing between the image and text */
 }
 
