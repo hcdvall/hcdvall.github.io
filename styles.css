@@ -222,9 +222,9 @@ footer {
 .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-            grid-template-rows: auto 1fr;    /* 2 equal rows */
+            grid-template-rows: repeat(2, 1fr);    /* 2 equal rows */
             gap: 0px; /* Gap between grid items */
-            width: 50%; /* Adjust the width as needed */
+            width: 60%; /* Adjust the width as needed */
             margin: 0 auto; /* Center the grid horizontally */
             justify-items: center;
             text-align: center; /* Center text within grid items */
@@ -233,7 +233,7 @@ footer {
 /* CSS for individual grid items */
 .grid-item {
 
-    padding: 20px;
+    padding: 0px;
 }
 
 .grid-item.full-width {
