@@ -136,6 +136,25 @@ a:hover {
     
 }
 
+.project-text-front {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for text readability */
+    color: #ffffff; /* Text color on the background */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    opacity: 0;
+    
+}
+
 .project-image {
     background-size: cover;
     background-position: center;
@@ -156,15 +175,17 @@ footer {
 
 
 .about-content {
-    display: flex;
+    display:inline-block;
     align-items: center;
 }
 
 .about-image img {
-    max-width: 400px; /* Adjust the size as needed */
-    max-height: 400px; /* Adjust the size as needed */
+    max-width: 500px; /* Adjust the size as needed */
+    max-height: 500px; /* Adjust the size as needed */
     border-radius: 5%; /* Creates a rounded image */
-    margin-right: 50px; /* Adds spacing between the image and text */
+    margin-right: 30px; /* Adds spacing between the image and text */
+    margin-bottom: 10px; /* Adds spacing between the image and text */
+    float: left;
 }
 
 .image1 {
@@ -176,6 +197,7 @@ footer {
     width: 100%; /* Ensure the image covers the container */
     filter: blur(5px);
     height: 250px;
+    opacity: 0;
 }
 
 .image2 {
@@ -199,6 +221,18 @@ footer {
 
 .project:hover .image2 {
     opacity: 0;
+}
+
+.project:hover .image1 {
+    opacity: 1;
+}
+
+.project:hover .project-text {
+    opacity: 0;
+}
+
+.project:hover .project-text-front {
+    opacity: 1;
 }
 
 .grid-container-element { 
