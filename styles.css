@@ -161,8 +161,8 @@ footer {
 }
 
 .about-image img {
-    max-width: 500px; /* Adjust the size as needed */
-    max-height: 500px; /* Adjust the size as needed */
+    max-width: 400px; /* Adjust the size as needed */
+    max-height: 400px; /* Adjust the size as needed */
     border-radius: 5%; /* Creates a rounded image */
     margin-right: 50px; /* Adds spacing between the image and text */
 }
@@ -233,7 +233,6 @@ footer {
 
 /* CSS for individual grid items */
 .grid-item {
-
     padding: 0px;
 }
 
