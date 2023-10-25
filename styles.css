@@ -36,12 +36,13 @@ header {
 .header2 {
     padding-top: 10px;
     font-size: large;
-    background-color: #282a36;
+    background-color: #000000;
     display: inline-grid; 
     grid-gap: 20px; 
     width: 100%; 
     text-align: center; 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    padding: 30px;   
 }
 
 nav ul {
@@ -221,7 +222,7 @@ footer {
 
 .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+            grid-template-columns: repeat(3, auto); /* 3 equal columns */
             grid-template-rows: repeat(2, 1fr);    /* 2 equal rows */
             gap: 0px; /* Gap between grid items */
             width: 60%; /* Adjust the width as needed */
@@ -238,4 +239,9 @@ footer {
 
 .grid-item.full-width {
     grid-column: 1 / 4; /* Span all three columns */
+}
+
+.bread-content {
+    max-width: 1000px;
+    margin: auto;
 }
