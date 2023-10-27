@@ -151,8 +151,7 @@ a:hover {
     color: #ffffff; /* Text color on the background */
     padding-top: 20px;
     padding-bottom: 20px;
-    opacity: 0;
-    
+    opacity: 0.0;   
 }
 
 .project-image {
@@ -198,6 +197,8 @@ footer {
     filter: blur(5px);
     height: 250px;
     opacity: 0;
+    
+    
 }
 
 .image2 {
@@ -208,6 +209,9 @@ footer {
     width: 100%; /* Ensure the image covers the container */
     filter: blur(5px);
     height: 250px;
+    
+    
+    
 }
 
 .image3 {
