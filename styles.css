@@ -87,6 +87,14 @@ h3 {
     color:#ffb86c;
     font-size: 50px;
 }
+/* Media query for mobile devices */
+@media only screen and (max-width: 568px) {
+    h3 {
+        color:#ffb86c;
+        font-size: 30px;
+    }
+}
+
 
 h4 {
     color:#bd93f9;
@@ -135,6 +143,26 @@ a:hover {
     padding-bottom: 20px;
     
 }
+
+
+.project-text {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for text readability */
+    color: #ffffff; /* Text color on the background */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
 
 .project-text-front {
     position: absolute;

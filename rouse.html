@@ -93,25 +93,14 @@
         In all states (even when not jumping) the falling would be altered to increase over time by checking if if the player had a velocity in negative z. 
         If that was true, I used AddActorWorldOffset() to increase the change of z over time by a constant factor.
     </p>
+    <!--
     <br>
     <div class="project">
         <img class="image3" src="projects/rouse/Falling.PNG" style="height: 200px;border-radius: 2%">
     </div>
     <br>
-    <p>
-        The primary reason for this alteration was to make jumping feel more snappy, which was especially useful for accuracy in smaller platforming scenarios. 
-        This leads into another essential part in the snappiness of the jumping, especially when the player is moving or sprinting.
-        <br><br>
-        Initially I only added an upwards force (positive z) to make the player jump. 
-        However, this make the jumping feel very buoyant. 
-        The alteration of the falling helps, but by giving the player an extra push on the x-y plane when moving plus jumping, the snappiness was further increased. 
-        This was done by using LaunchCharacter(), with a constant velocity of z, but altering x and y velocity.
-        <br><br>
-        The push in x and y was calculated by multiplying the current velocity in the respective direction with a constant factor. 
-        So the push would be greater when the player is sprinting. 
-        At all times, the player was also able to maneuver the player in the air, no matter the initial state before jumping.
-    </p>
-
+    -->
+    
     <div class="grid-container-element">
 
         <div class="grid-child-element purple">
@@ -133,6 +122,23 @@
         </div>
 
     </div>
+
+
+    <p>
+        The primary reason for this alteration was to make jumping feel more snappy, which was especially useful for accuracy in smaller platforming scenarios. 
+        This leads into another essential part in the snappiness of the jumping, especially when the player is moving or sprinting.
+        <br><br>
+        Initially I only added an upwards force (positive z) to make the player jump. 
+        However, this make the jumping feel very buoyant. 
+        The alteration of the falling helps, but by giving the player an extra push on the x-y plane when moving plus jumping, the snappiness was further increased. 
+        This was done by using LaunchCharacter(), with a constant velocity of z, but altering x and y velocity.
+        <br><br>
+        The push in x and y was calculated by multiplying the current velocity in the respective direction with a constant factor. 
+        So the push would be greater when the player is sprinting. 
+        At all times, the player was also able to maneuver the player in the air, no matter the initial state before jumping.
+    </p>
+
+    
     
     <h4>Aiming down sights</h4>
     <p>
