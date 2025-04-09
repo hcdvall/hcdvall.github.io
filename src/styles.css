@@ -1,0 +1,316 @@
+@font-face {
+    font-family: "retro_gaming";
+    src: url("fonts/retro_gaming_font/RetroGaming.ttf");
+  }  
+
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+main {
+    position: absolute;
+}
+
+/* Reset some default styles for better customization */
+body, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-family: 'retro_gaming', monospace;
+    color: #f8f8f2;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hermit', monospace;
+    color: #f8f8f2;
+}
+
+ul, li {
+    margin: 0;
+    padding-left: 20px;
+    font-family: 'Hermit', monospace;
+    color: #f8f8f2;
+}
+
+body {
+    background-color: #000000;
+}
+
+header {
+    background-color: #282a36;
+    padding: 30px;
+}
+.header2 {
+    padding-top: 10px;
+    font-size: large;
+    background-color: #000000;
+    display: inline-grid; 
+    grid-gap: 20px; 
+    width: 100%; 
+    text-align: center; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    padding: 30px;   
+}
+
+nav ul {
+    list-style: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    font-family: 'retro_gaming', monospace;
+    font-size: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #bd93f9;
+}
+
+nav ul li a:hover {
+    text-decoration:line-through;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ff79c6;
+    background-color: #000000;
+}
+
+h1, h2 {
+    color: #50fa7b;
+    padding-bottom: 20px;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
+h3 {
+    color:#ffb86c;
+    font-size: 50px;
+}
+/* Media query for mobile devices */
+@media only screen and (max-width: 568px) {
+    h3 {
+        color:#ffb86c;
+        font-size: 30px;
+    }
+}
+
+
+h4 {
+    color:#bd93f9;
+    font-size: 20px;
+}
+
+a {
+    color: #bd93f9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: line-through;
+}
+
+.project {
+    position: relative;
+    overflow: hidden;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.project-link {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+.project-text {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for text readability */
+    color: #ffffff; /* Text color on the background */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+
+.project-text {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for text readability */
+    color: #ffffff; /* Text color on the background */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+
+.project-text-front {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for text readability */
+    color: #ffffff; /* Text color on the background */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    opacity: 0.0;   
+}
+
+.project-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 150px;
+    width: 100%; /* Ensure the image covers the container */
+    filter: blur(5px); /* Apply blur to the background image */
+}
+
+footer {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    position: bottom;
+    bottom: 0;
+    width: 100%;
+}
+
+.about-content {
+    display:inline-block;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 500px; /* Adjust the size as needed */
+    max-height: 500px; /* Adjust the size as needed */
+    border-radius: 5%; /* Creates a rounded image */
+    margin-right: 30px; /* Adds spacing between the image and text */
+    margin-bottom: 10px; /* Adds spacing between the image and text */
+    float: left;
+}
+
+.image1 {
+    object-fit: cover;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; /* Ensure the image covers the container */
+    filter: blur(5px);
+    height: 250px;
+    opacity: 0;
+}
+
+.image2 {
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; /* Ensure the image covers the container */
+    filter: blur(5px);
+    height: 250px;  
+}
+
+.image3 {
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; /* Ensure the image covers the container */
+    height: 500px;
+}
+
+.project:hover .image2 {
+    opacity: 0;
+}
+
+.project:hover .image1 {
+    opacity: 1;
+}
+
+.project:hover .project-text {
+    opacity: 0;
+}
+
+.project:hover .project-text-front {
+    opacity: 1;
+}
+
+.grid-container-element { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 20px;    
+    width: 100%; 
+} 
+.grid-child-element { 
+    margin: 10px;  
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* 3 equal columns */
+    grid-template-rows: repeat(2, 1fr);    /* 2 equal rows */
+    gap: 0px; /* Gap between grid items */
+    width: 60%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the grid horizontally */
+    justify-items: center;
+    text-align: center; /* Center text within grid items */
+}
+
+/* CSS for individual grid items */
+.grid-item {
+    padding: 0px;
+}
+
+.grid-item.full-width {
+    grid-column: 1 / 4; /* Span all three columns */
+}
+
+.bread-content {
+    max-width: 1000px;
+    margin: auto;
+}
