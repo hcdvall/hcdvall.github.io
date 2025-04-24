@@ -1,6 +1,5 @@
-import './style.css';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 // === GLOBAL VARIABLES ===
 let scene, camera, renderer, controls, geomObj;
@@ -19,6 +18,7 @@ function skybox() {
 
 // Initialize Scene, Camera, and Renderer
 function initScene() {
+  console.log("Initializing scene...");
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg') });
@@ -26,6 +26,10 @@ function initScene() {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.position.setZ(30);
+
+  console.log("Scene initialized:", scene);
+  console.log("Camera initialized:", camera);
+  console.log("Renderer initialized:", renderer);
   
   //skybox();
   scene.background = new THREE.Color().setHex(0x131313);
@@ -33,7 +37,7 @@ function initScene() {
 
 // Create and Add Geometry Object
 function addGeomObj() {
-  const profileTexture = new THREE.TextureLoader().load('src/javascript.svg');
+  const profileTexture = new THREE.TextureLoader().load('./javascript.svg');
   geomObj = new THREE.Mesh(
      new THREE.BoxGeometry(3, 3, 3), 
      new THREE.MeshBasicMaterial({map: profileTexture})
@@ -96,6 +100,7 @@ function generateStars(count = 400) {
     starGroup.add(star);
   }
 
+  console.log("Stars generated:", starGroup);
   scene.add(starGroup);
 }
 
@@ -135,6 +140,7 @@ window.addEventListener('mousemove', handleMouseMove);
 function animate() {
   requestAnimationFrame(animate);
 
+  console.log("Animating frame...");
   CameraController.updateCamera(camera);
 
   if (controls) {
